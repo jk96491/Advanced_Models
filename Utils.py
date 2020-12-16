@@ -2,6 +2,7 @@ import os
 import torch
 from torchvision import datasets
 import torchvision.transforms as transforms
+import torchvision.datasets as dsets
 import torch.nn as nn
 
 
@@ -25,6 +26,17 @@ def MnistLoadData(image_size, batch_size, train):
     )
 
     return dataloader
+
+
+def CIFARLoadData(batch_size, Train):
+    os.makedirs("images", exist_ok=True)
+
+    transform = transforms.Compose([transforms.Scale(64), transforms.ToTensor(), transforms.Normalize(mean=(0.5, 0.5, 0.5), std=(0.5, 0.5, 0.5))])
+    dataset = dsets.CIFAR10(root='./data/', train=Train, download=True, transform=transform)
+    data_loader = torch.utils.data.DataLoader(dataset, batch_size=batch_size, shuffle=True)
+
+    return data_loader
+
 
 
 def conv_3x3(in_planes, out_planes, stride=1):
