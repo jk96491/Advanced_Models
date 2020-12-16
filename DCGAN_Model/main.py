@@ -21,13 +21,14 @@ label = torch.FloatTensor(args.batch_size).to(device)
 for epoch in range(args.n_epochs):
     for i, data in enumerate(train_loader):
         real_images, _ = data
-
-        real_labels = label.resize_(args.batch_size).fill_(1)
-        fake_labels = label.resize_(args.batch_size).fill_(0)
+        current_batch_size = real_images.size(0)
 
         inputs = Variable(inputs.resize_as_(real_images).copy_(real_images)).to(device)
-        noise.resize_(args.batch_size, args.noise_dim, 1, 1).normal_(0, 1)
+        noise.resize_(current_batch_size, args.noise_dim, 1, 1).normal_(0, 1)
         noise = Variable(noise)
+
+        real_labels = label.resize_(current_batch_size).fill_(1)
+        fake_labels = label.resize_(current_batch_size).fill_(0)
 
         discriminator_loss, generator_image = model.learn_discriminator(inputs, noise, real_labels, fake_labels)
         generator_loss = model.learn_generator(real_labels)
