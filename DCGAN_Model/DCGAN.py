@@ -24,14 +24,14 @@ class dc_gan(nn.Module):
         self.fake = None
         self.real_loss = None
 
-    def learn_discriminator(self, inputs, noise, label):
+    def learn_discriminator(self, inputs, noise, real_labels, fake_labels):
         output = self.Discriminator(inputs)
-        real_loss = self.adversarial_loss(output, label)
+        real_loss = self.adversarial_loss(output, real_labels)
 
         self.fake = self.Generator(noise)
         detached_fake = self.fake.detach()
         discriminator_result = self.Discriminator(detached_fake)
-        fake_loss = self.adversarial_loss(discriminator_result, label)
+        fake_loss = self.adversarial_loss(discriminator_result, fake_labels)
 
         loss = (real_loss + fake_loss) / 2
 

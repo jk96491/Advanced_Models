@@ -10,26 +10,27 @@ args = parse_Arg()
 
 train_loader = CIFARLoadData(args.batch_size, True)
 
-model = dc_gan(args)
+device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
-inputs = torch.FloatTensor(args.batch_size, 3, args.image_size, args.image_size)
-noise = torch.FloatTensor(args.batch_size, args.noise_dim, 1, 1)
-label = torch.FloatTensor(args.batch_size)
+model = dc_gan(args).to(device)
 
-real_label = 1
-fake_label = 0
+inputs = torch.FloatTensor(args.batch_size, 3, args.image_size, args.image_size).to(device)
+noise = torch.FloatTensor(args.batch_size, args.noise_dim, 1, 1).to(device)
+label = torch.FloatTensor(args.batch_size).to(device)
 
 for epoch in range(args.n_epochs):
     for i, data in enumerate(train_loader):
         real_images, _ = data
 
-        inputs = Variable(inputs.resize_as_(real_images).copy_(real_images))
+        real_labels = label.resize_(args.batch_size).fill_(1)
+        fake_labels = label.resize_(args.batch_size).fill_(0)
+
+        inputs = Variable(inputs.resize_as_(real_images).copy_(real_images)).to(device)
         noise.resize_(args.batch_size, args.noise_dim, 1, 1).normal_(0, 1)
         noise = Variable(noise)
-        label = Variable(label.fill_(fake_label))
 
-        discriminator_loss, generator_image = model.learn_discriminator(inputs, noise, label)
-        generator_loss = model.learn_generator(label)
+        discriminator_loss, generator_image = model.learn_discriminator(inputs, noise, real_labels, fake_labels)
+        generator_loss = model.learn_generator(real_labels)
 
         print(
             "[Epoch %d/%d] [Batch %d/%d] [Discriminator_loss: %f] [Generator_loss: %f]"
