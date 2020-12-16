@@ -21,12 +21,18 @@ class gan(nn.Module):
 
         self.adversarial_loss = nn.BCELoss()
 
-    def learn_generator(self, image, valid):
+        self.valid = None
+        self.fake = None
+
+    def learn_generator(self, image):
+        self.valid = Variable(torch.FloatTensor(image.size(0), 1).fill_(1.0), requires_grad=False)
+        self.fake = Variable(torch.FloatTensor(image.size(0), 1).fill_(0.0), requires_grad=False)
+
         z = Variable(torch.FloatTensor(np.random.normal(0, 1, (image.shape[0],  self.args.latent_dim))))
 
         generator_images = self.Generator(z)
         discriminator_result = self.Discriminator(generator_images)
-        loss = self.adversarial_loss(discriminator_result, valid)
+        loss = self.adversarial_loss(discriminator_result, self.valid)
 
         self.optimizer_generator.zero_grad()
         loss.backward()
@@ -34,9 +40,9 @@ class gan(nn.Module):
 
         return loss.item(), generator_images
 
-    def learn_discriminator(self, real_images, fake, valid, generator_images):
-        real_loss = self.adversarial_loss(self.Discriminator(real_images), valid)
-        fake_loss = self.adversarial_loss(self.Discriminator(generator_images.detach()), fake)
+    def learn_discriminator(self, real_images, generator_images):
+        real_loss = self.adversarial_loss(self.Discriminator(real_images), self.valid)
+        fake_loss = self.adversarial_loss(self.Discriminator(generator_images.detach()), self.fake)
 
         loss = (real_loss + fake_loss) / 2
 

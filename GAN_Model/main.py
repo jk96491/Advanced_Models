@@ -13,14 +13,10 @@ model = gan(image_shape, args)
 
 for epoch in range(args.n_epochs):
     for i, (images, _) in enumerate(data_loader):
-
-        valid = Variable(torch.FloatTensor(images.size(0), 1).fill_(1.0), requires_grad=False)
-        fake = Variable(torch.FloatTensor(images.size(0), 1).fill_(0.0), requires_grad=False)
-
         real_images = Variable(images.type(torch.FloatTensor))
 
-        generator_loss, generator_image = model.learn_generator(images, valid)
-        discriminator_loss = model.learn_discriminator(real_images, fake, valid, generator_image)
+        generator_loss, generator_image = model.learn_generator(images)
+        discriminator_loss = model.learn_discriminator(real_images, generator_image)
 
         print(
             "[Epoch %d/%d] [Batch %d/%d] [Discriminator_loss: %f] [Generator_loss: %f]"
