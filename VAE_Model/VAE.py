@@ -12,14 +12,15 @@ class vae(nn.Module):
         super(vae, self).__init__()
         self.input_dim = args.input_dim
         self.hidden_dim = args.hidden_dim
+        self.hidden_dim2 = args.hidden_dim2
         self.output_dim = args.output_dim
         self.latent_dim = args.latent_dim
 
-        self.encoder = Encoder(self.input_dim, self.hidden_dim, self.output_dim)
-        self.decoder = Decoder(self.latent_dim, self.hidden_dim, self.input_dim)
+        self.encoder = Encoder(self.input_dim, self.hidden_dim, self.hidden_dim2, self.output_dim)
+        self.decoder = Decoder(self.latent_dim, self.hidden_dim2, self.hidden_dim, self.input_dim)
 
-        self.enc_mu = nn.Linear(self.hidden_dim, self.latent_dim)
-        self.enc_log_sigma = nn.Linear(self.hidden_dim, self.latent_dim)
+        self.enc_mu = nn.Linear(self.output_dim, self.latent_dim)
+        self.enc_log_sigma = nn.Linear(self.output_dim, self.latent_dim)
 
         self.optimizer = optim.Adam(self.parameters(), lr=args.learning_rate)
         self.mse_loss = nn.MSELoss()
