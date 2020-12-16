@@ -25,6 +25,9 @@ class vae(nn.Module):
         self.optimizer = optim.Adam(self.parameters(), lr=args.learning_rate)
         self.mse_loss = nn.MSELoss()
 
+        self.z_mean = None
+        self.z_sigma = None
+
     def sampling_latent(self, hidden):
         mu = self.enc_mu(hidden)
         log_sigma = self.enc_log_sigma(hidden)
