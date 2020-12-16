@@ -7,7 +7,7 @@ from torchvision.utils import save_image
 
 args = parse_Arg()
 image_shape = (args.channels, args.image_size, args.image_size)
-data_loader = MnistLoadData(args.image_size, args.batch_size)
+data_loader = MnistLoadData(args.image_size, args.batch_size, True)
 
 model = gan(image_shape, args)
 

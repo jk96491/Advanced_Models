@@ -14,5 +14,5 @@ def parse_Arg():
     parser.add_argument("--channels", type=int, default=1, help="number of image channels")
     parser.add_argument("--learning_rate", type=float, default=0.001)
     parser.add_argument("--sample_interval", type=int, default=400, help="interval betwen image samples")
-    opt = parser.parse_args()
-    return opt
+    args = parser.parse_args()
+    return args

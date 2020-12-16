@@ -22,16 +22,39 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/VAE_Model" />
+    <property name="ToolWindowRun.ShowToolbar" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Resnet_Model" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\JGY\Desktop\Advanced_Models\trunk\Resnet_Model" />
       <recent name="C:\Users\JGY\Desktop\Advanced_Models\trunk\VAE_Model" />
       <recent name="C:\Users\JGY\Desktop\Advanced_Models\trunk\GAN_Model" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main (2)">
+  <component name="RunManager" selected="Python.main (3)">
+    <configuration name="Utils" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Advanced_Models" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Utils.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="main (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Advanced_Models" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -74,6 +97,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="main (3)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Advanced_Models" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Resnet_Model" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Resnet_Model/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Advanced_Models" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -97,8 +141,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.main (3)" />
         <item itemvalue="Python.main (2)" />
         <item itemvalue="Python.main (1)" />
+        <item itemvalue="Python.Utils" />
         <item itemvalue="Python.main" />
       </list>
     </recent_temporary>
@@ -118,26 +164,26 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1548" height="466" key="DebuggerActiveHint" timestamp="1608100077846">
+    <state width="1548" height="466" key="DebuggerActiveHint" timestamp="1608101787705">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1548" height="466" key="DebuggerActiveHint/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608100077846" />
-    <state width="1899" height="348" key="GridCell.Tab.0.bottom" timestamp="1608101089128">
+    <state width="1548" height="466" key="DebuggerActiveHint/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608101787705" />
+    <state width="1899" height="282" key="GridCell.Tab.0.bottom" timestamp="1608105051076">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608101089128" />
-    <state width="1899" height="348" key="GridCell.Tab.0.center" timestamp="1608101089128">
+    <state width="1899" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608105051076" />
+    <state width="1899" height="282" key="GridCell.Tab.0.center" timestamp="1608105051076">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="348" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608101089128" />
-    <state width="1899" height="348" key="GridCell.Tab.0.left" timestamp="1608101089128">
+    <state width="1899" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608105051076" />
+    <state width="1899" height="282" key="GridCell.Tab.0.left" timestamp="1608105051076">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="348" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608101089128" />
-    <state width="1899" height="348" key="GridCell.Tab.0.right" timestamp="1608101089128">
+    <state width="1899" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608105051076" />
+    <state width="1899" height="282" key="GridCell.Tab.0.right" timestamp="1608105051076">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="348" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608101089128" />
+    <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608105051076" />
     <state x="461" y="162" key="SettingsEditor" timestamp="1608092047905">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -158,5 +204,17 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="1920" y="72" width="1441" height="651" maximized="true" key="dock-window-3/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608100182036" />
+    <state x="1920" y="0" width="1441" height="1027" maximized="true" key="dock-window-4" timestamp="1608101304020">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1920" y="0" width="1441" height="1027" maximized="true" key="dock-window-4/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608101304020" />
+    <state x="1912" y="-8" width="1441" height="717" maximized="true" key="dock-window-5" timestamp="1608104765468">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1912" y="-8" width="1441" height="717" maximized="true" key="dock-window-5/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608104765468" />
+    <state x="1825" y="194" width="1441" height="1027" maximized="true" key="dock-window-6" timestamp="1608105037989">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1825" y="194" width="1441" height="1027" maximized="true" key="dock-window-6/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608105037989" />
   </component>
 </project>
