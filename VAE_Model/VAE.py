@@ -43,8 +43,8 @@ class vae(nn.Module):
         return latent
 
     def forward(self, state):
-        hidden = self.encoder(state)
-        latent = self.sampling_latent(hidden)
+        encoder_output = self.encoder(state)
+        latent = self.sampling_latent(encoder_output)
         return self.decoder(latent)
 
     def learn(self, inputs):
