@@ -3,10 +3,13 @@ from VAE_Model.Parser_args import parse_Arg
 from VAE_Model.VAE import vae
 from torch.autograd import Variable
 from torchvision.utils import save_image
+from Utils import get_device
 
 args = parse_Arg()
 image_shape = (args.channels, args.image_size, args.image_size)
 data_loader = MnistLoadData(args.image_size, args.batch_size, True)
+
+device = get_device()
 
 model = vae(args)
 

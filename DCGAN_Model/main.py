@@ -4,13 +4,14 @@ from torch.autograd import Variable
 from DCGAN_Model.DCGAN import dc_gan
 from torchvision.utils import save_image
 from Utils import CIFARLoadData
+from Utils import get_device
 
 
 args = parse_Arg()
 
 train_loader = CIFARLoadData(args.batch_size, True)
 
-device = 'cuda' if torch.cuda.is_available() else 'cpu'
+device = get_device()
 
 model = dc_gan(args).to(device)
 

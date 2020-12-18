@@ -4,12 +4,15 @@ from Utils import MnistLoadData
 from torch.autograd import Variable
 from GAN_Model.GAN import gan
 from torchvision.utils import save_image
+from Utils import get_device
 
 args = parse_Arg()
 image_shape = (args.channels, args.image_size, args.image_size)
 data_loader = MnistLoadData(args.image_size, args.batch_size, True)
 
-model = gan(image_shape, args)
+device = get_device()
+
+model = gan(image_shape, args).to(device)
 
 for epoch in range(args.n_epochs):
     for i, (images, _) in enumerate(data_loader):
