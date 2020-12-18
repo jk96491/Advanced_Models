@@ -28,9 +28,9 @@ class vae(nn.Module):
         self.z_mean = None
         self.z_sigma = None
 
-    def sampling_latent(self, hidden):
-        mu = self.enc_mu(hidden)
-        log_sigma = self.enc_log_sigma(hidden)
+    def sampling_latent(self, encoder_output):
+        mu = self.enc_mu(encoder_output)
+        log_sigma = self.enc_log_sigma(encoder_output)
 
         sigma = torch.exp(log_sigma)
         std_z = torch.from_numpy(np.random.normal(0, 1, size=sigma.size())).float()
