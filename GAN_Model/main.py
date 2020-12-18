@@ -28,7 +28,7 @@ for epoch in range(args.n_epochs):
 
         batches_done = epoch * len(data_loader) + i
         if batches_done % args.sample_interval == 0:
-            save_image(generator_image.data[:25], "images/%d.png" % batches_done, nrow=args.nrow, normalize=True)
+            save_image(generator_image, "images/%d.png" % batches_done, nrow=args.nrow, normalize=True)
 
 
 
