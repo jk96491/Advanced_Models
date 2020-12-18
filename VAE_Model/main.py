@@ -20,7 +20,7 @@ for epoch in range(args.n_epochs):
 
         loss = model.learn(inputs)
 
-        print("[Epoch %d/%d] [Batch %d/%d] [loss: %f]]" % (epoch, args.n_epochs, i, len(data_loader), loss))
+        print("[Epoch %d/%d] [Batch %d/%d] [loss: %f]]" % (epoch + 1, args.n_epochs, i + 1, len(data_loader), loss))
 
         batches_done = epoch * len(data_loader) + i
         if batches_done % args.sample_interval == 0:

@@ -21,7 +21,7 @@ for epoch in range(args.n_epochs):
 
         loss = model.Learn(inputs, labels)
 
-        print("[Epoch %d/%d] [Batch %d/%d] [loss: %f]]" % (epoch, args.n_epochs, i, len(train_loader), loss))
+        print("[Epoch %d/%d] [Batch %d/%d] [loss: %f]]" % (epoch + 1, args.n_epochs, i + 1, len(train_loader), loss))
 
 # 평가
 with torch.no_grad():
