@@ -47,8 +47,8 @@ def conv_1x1(in_planes, out_planes, stride=1):
     return nn.Conv2d(in_planes, out_planes, kernel_size=1, stride=stride, bias=False)
 
 
-def get_device():
-    device = 'cuda' if torch.cuda.is_available() else 'cpu'
+def get_device(device_name='cuda:0'):
+    device = device_name if torch.cuda.is_available() else 'cpu'
     return device
 
 

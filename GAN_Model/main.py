@@ -10,7 +10,7 @@ args = parse_Arg()
 image_shape = (args.channels, args.image_size, args.image_size)
 data_loader = CIFARLoadData(args.batch_size, True, True)
 
-device = get_device()
+device = get_device("cuda:1")
 
 model = gan(image_shape, args, device)
 
