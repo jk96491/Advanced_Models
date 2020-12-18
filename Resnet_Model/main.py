@@ -18,7 +18,7 @@ for epoch in range(args.n_epochs):
     for i, data in enumerate(train_loader):
         inputs, labels = data
 
-        loss = model.Learn(inputs, labels)
+        loss = model.Learn(inputs.to(device), labels.to(device))
 
         print("[Epoch %d/%d] [Batch %d/%d] [loss: %f]]" % (epoch, args.n_epochs, i, len(train_loader), loss))
 
