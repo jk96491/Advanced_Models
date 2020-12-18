@@ -16,9 +16,9 @@ model = ResNet(args.channels, args.layers).to(device)
 # 학습 진행
 for epoch in range(args.n_epochs):
     for i, data in enumerate(train_loader):
-        inputs, labels = data
+        inputs, labels = data[0].to(device), data[1].to(device)
 
-        loss = model.Learn(inputs.to(device), labels.to(device))
+        loss = model.Learn(inputs, labels)
 
         print("[Epoch %d/%d] [Batch %d/%d] [loss: %f]]" % (epoch, args.n_epochs, i, len(train_loader), loss))
 
