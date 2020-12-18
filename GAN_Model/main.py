@@ -1,6 +1,6 @@
 import torch
 from GAN_Model.Parser_args import parse_Arg
-from Utils import MnistLoadData
+from Utils import CIFARLoadData
 from torch.autograd import Variable
 from GAN_Model.GAN import gan
 from torchvision.utils import save_image
@@ -8,7 +8,7 @@ from Utils import get_device
 
 args = parse_Arg()
 image_shape = (args.channels, args.image_size, args.image_size)
-data_loader = MnistLoadData(args.image_size, args.batch_size, True)
+data_loader = CIFARLoadData(args.batch_size, True)
 
 device = get_device()
 
