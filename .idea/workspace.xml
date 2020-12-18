@@ -23,18 +23,19 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="ToolWindowRun.ShowToolbar" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Resnet_Model" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../CMS_EDU/trunk" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\JGY\Desktop\Advanced_Models\trunk" />
       <recent name="C:\Users\JGY\Desktop\Advanced_Models\trunk\Resnet_Model" />
       <recent name="C:\Users\JGY\Desktop\Advanced_Models\trunk\VAE_Model" />
       <recent name="C:\Users\JGY\Desktop\Advanced_Models\trunk\GAN_Model" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main (3)">
-    <configuration name="Utils" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.main (2)">
+    <configuration name="DCGAN" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Advanced_Models" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -42,11 +43,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DCGAN_Model" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Utils.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DCGAN_Model/DCGAN.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -118,7 +119,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="main (4)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Advanced_Models" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -126,11 +127,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/GAN" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DCGAN_Model" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GAN/main.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DCGAN_Model/main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -141,11 +142,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.main (3)" />
         <item itemvalue="Python.main (2)" />
+        <item itemvalue="Python.main (3)" />
+        <item itemvalue="Python.main (4)" />
+        <item itemvalue="Python.DCGAN" />
         <item itemvalue="Python.main (1)" />
-        <item itemvalue="Python.Utils" />
-        <item itemvalue="Python.main" />
       </list>
     </recent_temporary>
   </component>
@@ -164,38 +165,50 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1548" height="466" key="DebuggerActiveHint" timestamp="1608101787705">
+    <state x="676" y="145" key="#GAN" timestamp="1608107959945">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1548" height="466" key="DebuggerActiveHint/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608101787705" />
-    <state width="1899" height="282" key="GridCell.Tab.0.bottom" timestamp="1608105051076">
+    <state x="676" y="145" key="#GAN/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608107959945" />
+    <state x="676" y="145" key="#main_(4)" timestamp="1608109392804">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608105051076" />
-    <state width="1899" height="282" key="GridCell.Tab.0.center" timestamp="1608105051076">
+    <state x="676" y="145" key="#main_(4)/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608109392804" />
+    <state width="1548" height="466" key="DebuggerActiveHint" timestamp="1608286856403">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608105051076" />
-    <state width="1899" height="282" key="GridCell.Tab.0.left" timestamp="1608105051076">
+    <state width="1548" height="466" key="DebuggerActiveHint/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608286856403" />
+    <state x="2439" y="243" key="FileChooserDialogImpl" timestamp="1608280748058">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2439" y="243" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608280748058" />
+    <state width="1899" height="236" key="GridCell.Tab.0.bottom" timestamp="1608287228743">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608105051076" />
-    <state width="1899" height="282" key="GridCell.Tab.0.right" timestamp="1608105051076">
+    <state width="1899" height="236" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608287228743" />
+    <state width="1899" height="236" key="GridCell.Tab.0.center" timestamp="1608287228741">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608105051076" />
-    <state x="461" y="162" key="SettingsEditor" timestamp="1608092047905">
+    <state width="1899" height="236" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608287228741" />
+    <state width="1899" height="236" key="GridCell.Tab.0.left" timestamp="1608287228741">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608092047905" />
+    <state width="1899" height="236" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608287228741" />
+    <state width="1899" height="236" key="GridCell.Tab.0.right" timestamp="1608287228742">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="236" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608287228742" />
+    <state x="461" y="162" key="SettingsEditor" timestamp="1608280472598">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608280472598" />
     <state x="776" y="361" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1608092068640">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="776" y="361" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608092068640" />
-    <state x="1920" y="0" width="1441" height="1027" maximized="true" key="dock-window-1" timestamp="1608096914921">
+    <state x="1920" y="13" width="1441" height="1027" maximized="true" key="dock-window-1" timestamp="1608114748306">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="1920" y="0" width="1441" height="1027" maximized="true" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608096914921" />
+    <state x="1920" y="13" width="1441" height="1027" maximized="true" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608114748306" />
     <state x="1920" y="90" width="1441" height="717" maximized="true" key="dock-window-2" timestamp="1608099364295">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>

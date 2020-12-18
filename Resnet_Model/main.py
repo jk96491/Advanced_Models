@@ -3,10 +3,11 @@ from Resnet_Model.Resnet import ResNet
 from Utils import MnistLoadData
 from Resnet_Model.Parser_args import parse_Arg
 from Utils import get_device
+from Utils import CIFARLoadData
 
 args = parse_Arg()
-train_loader = MnistLoadData(None, args.batch_size, True)
-test_loader = MnistLoadData(None, args.batch_size, False)
+train_loader = CIFARLoadData(args.batch_size, True)
+test_loader = CIFARLoadData(args.batch_size, False)
 
 device = get_device()
 
