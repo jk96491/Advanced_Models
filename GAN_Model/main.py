@@ -12,11 +12,11 @@ data_loader = MnistLoadData(args.image_size, args.batch_size, True)
 
 device = get_device()
 
-model = gan(image_shape, args).to(device)
+model = gan(image_shape, args, device)
 
 for epoch in range(args.n_epochs):
     for i, (images, _) in enumerate(data_loader):
-        real_images = Variable(images.type(torch.FloatTensor))
+        real_images = Variable(images.type(torch.FloatTensor)).to(device)
 
         generator_loss, generator_image = model.learn_generator(images)
         discriminator_loss = model.learn_discriminator(real_images, generator_image)
