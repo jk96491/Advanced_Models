@@ -32,11 +32,11 @@ for epoch in range(args.n_epochs):
         fake_labels = label.resize_(current_batch_size).fill_(0)
 
         discriminator_loss, generator_image = model.learn_discriminator(inputs, noise, real_labels, fake_labels)
-        generator_loss = model.learn_generator(real_labels)
+        generator_loss = model.learn_generator(noise, real_labels)
 
         print(
             "[Epoch %d/%d] [Batch %d/%d] [Discriminator_loss: %f] [Generator_loss: %f]"
-            % (epoch, args.n_epochs, i, len(train_loader), discriminator_loss, generator_loss)
+            % (epoch + 1, args.n_epochs, i + 1, len(train_loader), discriminator_loss, generator_loss)
         )
 
         batches_done = epoch * len(train_loader) + i

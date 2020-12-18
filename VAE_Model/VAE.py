@@ -8,7 +8,7 @@ from torch import optim
 
 
 class vae(nn.Module):
-    def __init__(self, args):
+    def __init__(self, args, device):
         super(vae, self).__init__()
         self.input_dim = args.input_dim
         self.hidden_dim = args.hidden_dim
@@ -28,6 +28,9 @@ class vae(nn.Module):
         self.z_mean = None
         self.z_sigma = None
 
+        self.device = device
+        self.to(self.device)
+
     def sampling_latent(self, encoder_output):
         mu = self.enc_mu(encoder_output)
         log_sigma = self.enc_log_sigma(encoder_output)
@@ -38,7 +41,7 @@ class vae(nn.Module):
         self.z_mean = mu
         self.z_sigma = sigma
 
-        latent = mu + sigma * Variable(std_z, requires_grad=False)
+        latent = mu + sigma * Variable(std_z, requires_grad=False).to(self.device)
 
         return latent
 

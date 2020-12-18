@@ -11,12 +11,12 @@ data_loader = MnistLoadData(args.image_size, args.batch_size, True)
 
 device = get_device()
 
-model = vae(args)
+model = vae(args, device)
 
 for epoch in range(args.n_epochs):
     for i, data in enumerate(data_loader, 0):
         inputs, _ = data
-        inputs = Variable(inputs.resize_(args.batch_size, args.input_dim))
+        inputs = Variable(inputs.resize_(args.batch_size, args.input_dim)).to(device)
 
         loss = model.learn(inputs)
 
