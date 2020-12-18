@@ -48,9 +48,9 @@ class vae(nn.Module):
         return self.decoder(latent)
 
     def learn(self, inputs):
-        dec = self.forward(inputs)
+        decoder_output = self.forward(inputs)
         latent_loss = self.get_latent_loss(self.z_mean, self.z_sigma)
-        loss = self.mse_loss(dec, inputs) + latent_loss
+        loss = self.mse_loss(decoder_output, inputs) + latent_loss
 
         self.optimizer.zero_grad()
         loss.backward()
@@ -58,10 +58,10 @@ class vae(nn.Module):
 
         return loss.item()
 
-    def get_latent_loss(self, z_mean, z_stddev):
+    def get_latent_loss(self, z_mean, z_std):
         mean_sq = z_mean * z_mean
-        stddev_sq = z_stddev * z_stddev
-        return 0.5 * torch.mean(mean_sq + stddev_sq - torch.log(stddev_sq) - 1)
+        stdd_sq = z_std * z_std
+        return 0.5 * torch.mean(mean_sq + stdd_sq - torch.log(stdd_sq) - 1)
 
 
 
