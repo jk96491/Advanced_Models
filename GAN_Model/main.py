@@ -8,7 +8,7 @@ from Utils import get_device
 
 args = parse_Arg()
 image_shape = (args.channels, args.image_size, args.image_size)
-data_loader = CIFARLoadData(args.batch_size, True)
+data_loader = CIFARLoadData(args.batch_size, True, True)
 
 device = get_device()
 
@@ -28,7 +28,7 @@ for epoch in range(args.n_epochs):
 
         batches_done = epoch * len(data_loader) + i
         if batches_done % args.sample_interval == 0:
-            save_image(generator_image.data[:25], "images/%d.png" % batches_done, nrow=5, normalize=True)
+            save_image(generator_image.data[:25], "images/%d.png" % batches_done, nrow=args.nrow, normalize=True)
 
 
 

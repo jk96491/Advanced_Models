@@ -9,7 +9,7 @@ from Utils import get_device
 
 args = parse_Arg()
 
-train_loader = CIFARLoadData(args.batch_size, True)
+train_loader = CIFARLoadData(args.batch_size, True, True)
 
 device = get_device()
 
@@ -42,7 +42,7 @@ for epoch in range(args.n_epochs):
         batches_done = epoch * len(train_loader) + i
         if batches_done % args.sample_interval == 0:
             temp = generator_image
-            save_image(generator_image, "images/%d.png" % batches_done, nrow=8, normalize=True)
+            save_image(generator_image, "images/%d.png" % batches_done, nrow=args.nrow, normalize=True)
 
 
 

@@ -6,8 +6,8 @@ from Utils import get_device
 from Utils import CIFARLoadData
 
 args = parse_Arg()
-train_loader = CIFARLoadData(args.batch_size, True)
-test_loader = CIFARLoadData(args.batch_size, False)
+train_loader = CIFARLoadData(args.batch_size, True, False)
+test_loader = CIFARLoadData(args.batch_size, False, False)
 
 device = get_device()
 

@@ -16,5 +16,6 @@ def parse_Arg():
     parser.add_argument("--channels", type=int, default=3, help="number of image channels")
     parser.add_argument("--sample_interval", type=int, default=400, help="interval betwen image samples")
     parser.add_argument("--image_size", type=int, default=64, help="size of each image dimension")
+    parser.add_argument("--nrow", type=int, default=8)
     args = parser.parse_args()
     return args

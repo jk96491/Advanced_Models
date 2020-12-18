@@ -13,6 +13,6 @@ def parse_Arg():
     parser.add_argument("--image_size", type=int, default=28, help="size of each image dimension")
     parser.add_argument("--channels", type=int, default=1, help="number of image channels")
     parser.add_argument("--learning_rate", type=float, default=0.001)
-    parser.add_argument("--sample_interval", type=int, default=400, help="interval betwen image samples")
+    parser.add_argument("--nrow", type=int, default=8)
     args = parser.parse_args()
     return args

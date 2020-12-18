@@ -5,8 +5,9 @@ import torchvision.transforms as transforms
 import torch.nn as nn
 
 
-def MnistLoadData(image_size, batch_size, train):
-    os.makedirs("images", exist_ok=True)
+def MnistLoadData(image_size, batch_size, train, generate_image):
+    if generate_image is True:
+        os.makedirs("images", exist_ok=True)
 
     if image_size is None:
         transform = transforms.ToTensor()
@@ -27,8 +28,9 @@ def MnistLoadData(image_size, batch_size, train):
     return dataloader
 
 
-def CIFARLoadData(batch_size, Train):
-    os.makedirs("images", exist_ok=True)
+def CIFARLoadData(batch_size, Train, generate_image):
+    if generate_image is True:
+        os.makedirs("images", exist_ok=True)
 
     transform = transforms.Compose([transforms.Scale(64), transforms.ToTensor(), transforms.Normalize(mean=(0.5, 0.5, 0.5), std=(0.5, 0.5, 0.5))])
     dataset = datasets.CIFAR10(root='../Data/CIFAR/', train=Train, download=True, transform=transform)
