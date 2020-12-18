@@ -28,8 +28,8 @@ for epoch in range(args.n_epochs):
         noise.resize_(current_batch_size, args.noise_dim, 1, 1).normal_(0, 1)
         noise = Variable(noise)
 
-        real_labels = label.resize_(current_batch_size).fill_(1)
-        fake_labels = label.resize_(current_batch_size).fill_(0)
+        real_labels = Variable(torch.FloatTensor(current_batch_size, 1).fill_(1.0), requires_grad=False).to(device)
+        fake_labels = Variable(torch.FloatTensor(current_batch_size, 1).fill_(0.0), requires_grad=False).to(device)
 
         discriminator_loss, generator_image = model.learn_discriminator(inputs, noise, real_labels, fake_labels)
         generator_loss = model.learn_generator(noise, real_labels)
