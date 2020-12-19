@@ -9,8 +9,7 @@ class Decoder(nn.Module):
                                     nn.ReLU())
         self.layer2 = nn.Sequential(nn.Linear(hidden_dim, hidden_dim2),
                                     nn.ReLU())
-        self.layer3 = nn.Sequential(nn.Linear(hidden_dim2, out_dim),
-                                    nn.ReLU())
+        self.layer3 = nn.Sequential(nn.Linear(hidden_dim2, out_dim))
 
     def forward(self, x):
         x = self.layer1(x)

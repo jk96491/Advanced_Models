@@ -3,7 +3,6 @@ import torch.nn as nn
 import numpy as np
 from Models.VAE_Model.Encoder import Encoder
 from Models.VAE_Model.Decoder import Decoder
-from torch.autograd import Variable
 from torch import optim
 
 
@@ -15,9 +14,10 @@ class vae(nn.Module):
         self.hidden_dim2 = args.hidden_dim2
         self.output_dim = args.output_dim
         self.latent_dim = args.latent_dim
+        self.channels = args.channels
 
-        self.encoder = Encoder(self.input_dim, self.hidden_dim, self.hidden_dim2, self.output_dim)
-        self.decoder = Decoder(self.latent_dim, self.hidden_dim2, self.hidden_dim, self.input_dim)
+        self.encoder = Encoder(self.input_dim * self.channels, self.hidden_dim, self.hidden_dim2, self.output_dim)
+        self.decoder = Decoder(self.latent_dim, self.hidden_dim2, self.hidden_dim, self.input_dim * self.channels)
 
         self.enc_mu = nn.Linear(self.output_dim, self.latent_dim)
         self.enc_log_sigma = nn.Linear(self.output_dim, self.latent_dim)
@@ -41,9 +41,7 @@ class vae(nn.Module):
         self.z_mean = mu
         self.z_sigma = sigma
 
-        latent = mu + sigma * Variable(std_z, requires_grad=False).to(self.device)
-
-        return latent
+        return mu + sigma * std_z
 
     def forward(self, inputs):
         encoder_output = self.encoder(inputs)
