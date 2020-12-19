@@ -3,8 +3,6 @@ import torch.nn as nn
 from Models.CGAN_Model.Discriminator import Discriminator
 from Models.CGAN_Model.Generator import Generator
 from torch import optim
-import numpy as np
-from torch.autograd import Variable
 
 
 class cgan(nn.Module):
@@ -28,10 +26,10 @@ class cgan(nn.Module):
         self.to(device)
 
     def learn_generator(self, image, labels):
-        self.valid = Variable(torch.FloatTensor(image.size(0), 1).fill_(1.0), requires_grad=False).to(self.device)
-        self.fake = Variable(torch.FloatTensor(image.size(0), 1).fill_(0.0), requires_grad=False).to(self.device)
+        self.valid = torch.ones(image.size(0), 1).detach().to(self.device)
+        self.fake = torch.zeros(image.size(0), 1).detach().to(self.device)
 
-        z = Variable(torch.FloatTensor(np.random.normal(0, 1, (image.shape[0],  self.args.latent_dim)))).to(self.device)
+        z = torch.zeros(image.size(0), self.args.latent_dim).normal_(0, 1).to(self.device)
 
         generator_images = self.Generator(z, labels)
         discriminator_result = self.Discriminator(generator_images, labels)

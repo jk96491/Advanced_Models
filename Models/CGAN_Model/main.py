@@ -1,7 +1,6 @@
 import torch
 from Models.CGAN_Model.Parser_args import parse_Arg
 from Utils import CIFARLoadData
-from torch.autograd import Variable
 from Models.CGAN_Model.CGAN import cgan
 from torchvision.utils import save_image
 from Utils import get_device

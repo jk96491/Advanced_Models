@@ -1,6 +1,7 @@
 import torch.nn as nn
 from Models.SAGAN_Model.Attention_Layer import self_attention
 
+
 class Generator(nn.Module):
     def __init__(self, args):
         super(Generator, self).__init__()

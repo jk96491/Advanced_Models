@@ -1,6 +1,5 @@
 import torch
 from Models.SAGAN_Model.Parser_args import parse_Arg
-from torch.autograd import Variable
 from Models.SAGAN_Model.SAGAN import sa_gan
 from torchvision.utils import save_image
 from Utils import CIFARLoadData

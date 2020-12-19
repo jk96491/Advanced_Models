@@ -3,8 +3,6 @@ import torch.nn as nn
 from Models.GAN_Model.Discriminator import Discriminator
 from Models.GAN_Model.Generator import Generator
 from torch import optim
-import numpy as np
-from torch.autograd import Variable
 
 
 class gan(nn.Module):

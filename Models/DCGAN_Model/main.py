@@ -1,6 +1,5 @@
 import torch
 from Models.DCGAN_Model.Parser_args import parse_Arg
-from torch.autograd import Variable
 from Models.DCGAN_Model.DCGAN import dc_gan
 from torchvision.utils import save_image
 from Utils import CIFARLoadData
