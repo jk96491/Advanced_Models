@@ -28,10 +28,10 @@ class gan(nn.Module):
         self.to(device)
 
     def learn_generator(self, image):
-        self.valid = Variable(torch.FloatTensor(image.size(0), 1).fill_(1.0), requires_grad=False).to(self.device)
-        self.fake = Variable(torch.FloatTensor(image.size(0), 1).fill_(0.0), requires_grad=False).to(self.device)
+        self.valid = torch.ones(image.size(0), 1).detach().to(self.device)
+        self.fake = torch.zeros(image.size(0), 1).detach().to(self.device)
 
-        z = Variable(torch.FloatTensor(np.random.normal(0, 1, (image.shape[0],  self.args.latent_dim)))).to(self.device)
+        z = torch.zeros(image.size(0), self.args.latent_dim).normal_(0, 1).to(self.device)
 
         generator_images = self.Generator(z)
         discriminator_result = self.Discriminator(generator_images)
