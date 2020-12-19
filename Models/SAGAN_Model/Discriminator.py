@@ -1,5 +1,5 @@
 import torch.nn as nn
-from Models.SAGAN_Model.Self_Attention import self_attention
+from Models.SAGAN_Model.Attention_Layer import self_attention
 
 
 class Discriminator(nn.Module):
