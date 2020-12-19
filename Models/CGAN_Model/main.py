@@ -10,18 +10,16 @@ args = parse_Arg()
 image_shape = (args.channels, args.image_size, args.image_size)
 data_loader = CIFARLoadData(args.batch_size, True, True)
 
-device = get_device("cuda:1")
+device = get_device()
 
 model = cgan(image_shape, args, device)
 
 for epoch in range(args.n_epochs):
     for i, (images, label) in enumerate(data_loader):
-        real_images = Variable(images.type(torch.FloatTensor)).to(device)
-        label = Variable(label.type(torch.LongTensor))
+        real_images = images.to(device)
 
         y_label_ = torch.zeros(images.size(0), 10)
-        y_label_.scatter_(1, label.view(images.size(0), 1), 1)
-        labels = torch.FloatTensor(y_label_).to(device)
+        labels = y_label_.scatter_(1, label.view(images.size(0), 1), 1).to(device)
 
         generator_loss, generator_image = model.learn_generator(images, labels)
         discriminator_loss = model.learn_discriminator(real_images, generator_image, labels)
