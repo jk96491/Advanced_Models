@@ -1,10 +1,7 @@
-import torch
 import torch.nn as nn
-from DCGAN_Model.Discriminator import Discriminator
-from DCGAN_Model.Generator import Generator
+from Models.DCGAN_Model.Discriminator import Discriminator
+from Models.DCGAN_Model.Generator import Generator
 from torch import optim
-import numpy as np
-from torch.autograd import Variable
 
 
 class dc_gan(nn.Module):

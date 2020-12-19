@@ -1,8 +1,8 @@
 import torch
 import torch.nn as nn
 import numpy as np
-from VAE_Model.Encoder import Encoder
-from VAE_Model.Decoder import Decoder
+from Models.VAE_Model.Encoder import Encoder
+from Models.VAE_Model.Decoder import Decoder
 from torch.autograd import Variable
 from torch import optim
 

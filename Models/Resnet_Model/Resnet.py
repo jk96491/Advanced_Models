@@ -1,7 +1,7 @@
 import torch.nn as nn
 import torch.optim as optim
-from Resnet_Model.BasicBlock import BasicBlock
-from Resnet_Model.Bottle_neck import Bottle_neck
+from Models.Resnet_Model.BasicBlock import BasicBlock
+from Models.Resnet_Model.Bottle_neck import Bottle_neck
 from Utils import conv_1x1
 
 

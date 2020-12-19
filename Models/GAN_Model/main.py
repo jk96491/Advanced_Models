@@ -1,8 +1,8 @@
 import torch
-from CGAN_Model.Parser_args import parse_Arg
+from Models.GAN_Model.Parser_args import parse_Arg
 from Utils import CIFARLoadData
 from torch.autograd import Variable
-from CGAN_Model.CGAN import cgan
+from Models.GAN_Model.GAN import gan
 from torchvision.utils import save_image
 from Utils import get_device
 
@@ -12,19 +12,14 @@ data_loader = CIFARLoadData(args.batch_size, True, True)
 
 device = get_device("cuda:1")
 
-model = cgan(image_shape, args, device)
+model = gan(image_shape, args, device)
 
 for epoch in range(args.n_epochs):
-    for i, (images, label) in enumerate(data_loader):
+    for i, (images, _) in enumerate(data_loader):
         real_images = Variable(images.type(torch.FloatTensor)).to(device)
-        label = Variable(label.type(torch.LongTensor))
 
-        y_label_ = torch.zeros(images.size(0), 10)
-        y_label_.scatter_(1, label.view(images.size(0), 1), 1)
-        labels = torch.FloatTensor(y_label_).to(device)
-
-        generator_loss, generator_image = model.learn_generator(images, labels)
-        discriminator_loss = model.learn_discriminator(real_images, generator_image, labels)
+        generator_loss, generator_image = model.learn_generator(images)
+        discriminator_loss = model.learn_discriminator(real_images, generator_image)
 
         print(
             "[Epoch %d/%d] [Batch %d/%d] [Discriminator_loss: %f] [Generator_loss: %f]"

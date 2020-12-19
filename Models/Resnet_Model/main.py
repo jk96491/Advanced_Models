@@ -1,7 +1,7 @@
 import torch
-from Resnet_Model.Resnet import ResNet
+from Models.Resnet_Model.Resnet import ResNet
 from Utils import MnistLoadData
-from Resnet_Model.Parser_args import parse_Arg
+from Models.Resnet_Model.Parser_args import parse_Arg
 from Utils import get_device
 from Utils import CIFARLoadData
 
