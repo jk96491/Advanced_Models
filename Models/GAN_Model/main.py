@@ -1,7 +1,5 @@
-import torch
 from Models.GAN_Model.Parser_args import parse_Arg
 from Utils import CIFARLoadData
-from torch.autograd import Variable
 from Models.GAN_Model.GAN import gan
 from torchvision.utils import save_image
 from Utils import get_device
@@ -10,13 +8,13 @@ args = parse_Arg()
 image_shape = (args.channels, args.image_size, args.image_size)
 data_loader = CIFARLoadData(args.batch_size, True, True)
 
-device = get_device("cuda:1")
+device = get_device()
 
 model = gan(image_shape, args, device)
 
 for epoch in range(args.n_epochs):
     for i, (images, _) in enumerate(data_loader):
-        real_images = Variable(images.type(torch.FloatTensor)).to(device)
+        real_images = images.to(device)
 
         generator_loss, generator_image = model.learn_generator(images)
         discriminator_loss = model.learn_discriminator(real_images, generator_image)
