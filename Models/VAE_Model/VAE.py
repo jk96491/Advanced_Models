@@ -41,7 +41,7 @@ class vae(nn.Module):
         self.z_mean = mu
         self.z_sigma = sigma
 
-        return mu + sigma * std_z
+        return mu + sigma * std_z.to(self.device)
 
     def forward(self, inputs):
         encoder_output = self.encoder(inputs)
