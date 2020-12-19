@@ -16,11 +16,8 @@ class self_attention(nn.Module):
     def forward(self, inputs):
         batch_size, channels, width, height = inputs.size()
 
-        query = self.query(inputs).view(batch_size, -1, width * height)
-        query = query.permute(0, 2, 1)
-
+        query = self.query(inputs).view(batch_size, -1, width * height).permute(0, 2, 1)
         key = self.key(inputs).view(batch_size, -1, width * height)
-
         value = self.value(inputs).view(batch_size, -1, width * height)
 
         dot_product = torch.bmm(query, key)
