@@ -30,8 +30,7 @@ class Discriminator(nn.Module):
 
         self.layer5 = nn.Sequential(nn.Conv2d(self.noise_filter * 8, 1,
                                               kernel_size=4, stride=1, padding=0, bias=False),
-                                    nn.Sigmoid()
-                                    )
+                                    nn.Sigmoid())
 
     def forward(self, inputs):
         x = self.layer1(inputs)

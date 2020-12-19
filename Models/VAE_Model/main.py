@@ -2,7 +2,6 @@ from Utils import MnistLoadData
 from Utils import CIFARLoadData
 from Models.VAE_Model.Parser_args import parse_Arg
 from Models.VAE_Model.VAE import vae
-from torch.autograd import Variable
 from torchvision.utils import save_image
 from Utils import get_device
 

@@ -27,7 +27,7 @@ for epoch in range(args.n_epochs):
 with torch.no_grad():
     model.eval()
 
-    X_test = test_loader.test_data.view(len(test_loader), 1, 28, 28).float()
+    X_test = test_loader.test_data.view(len(test_loader), args.channels, 28, 28).float()
     Y_test = test_loader.test_labels
 
     prediction = model(X_test)
