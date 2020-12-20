@@ -36,7 +36,6 @@ for epoch in range(args.n_epochs):
             temp = generator_image
             save_image(generator_image, "images/%d.png" % batches_done, nrow=args.nrow, normalize=True)
 
-            # 의미 없는 코드
 
 
 
