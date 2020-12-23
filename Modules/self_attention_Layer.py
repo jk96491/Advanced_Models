@@ -1,5 +1,6 @@
 import torch
 import torch.nn as nn
+from Modules.scaled_dot_product_attention_layer import scaled_dot_product_attention
 
 
 class self_attention(nn.Module):
@@ -9,6 +10,8 @@ class self_attention(nn.Module):
         self.query = nn.Conv2d(input_dim, input_dim // 2, kernel_size=1)
         self.key = nn.Conv2d(input_dim, input_dim // 2, kernel_size=1)
         self.value = nn.Conv2d(input_dim, input_dim, kernel_size=1)
+
+        self.scaled_dot_product_attention_layer = scaled_dot_product_attention(input_dim // 2)
 
         self.gamma = nn.Parameter(torch.zeros(1))
         self.softmax = nn.Softmax(dim=-1)
@@ -20,12 +23,8 @@ class self_attention(nn.Module):
         key = self.key(inputs).view(batch_size, -1, width * height)
         value = self.value(inputs).view(batch_size, -1, width * height)
 
-        dot_product = torch.bmm(query, key)
-        attention_score = self.softmax(dot_product)
-
-        output = torch.bmm(value, attention_score.permute(0, 2, 1))
+        output, attention_score = self.scaled_dot_product_attention_layer(inputs, query, key, value)
         output = output.view(batch_size, channels, width, height)
-
         output = self.gamma * output + inputs
 
         return output, attention_score

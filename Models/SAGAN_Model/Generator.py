@@ -1,6 +1,6 @@
 import torch.nn as nn
 from Modules.self_attention_Layer import self_attention
-
+from Modules.multi_head_attention_Layer import multi_head_attention
 
 class Generator(nn.Module):
     def __init__(self, args):
@@ -28,7 +28,7 @@ class Generator(nn.Module):
         self.layer5 = nn.Sequential(nn.ConvTranspose2d(self.noise_filter, self.channels, 4, 2, 1, bias=False),
                                     nn.Tanh())
 
-        self.self_attention_layer = self_attention(self.noise_filter)
+        self.self_attention_layer = multi_head_attention(self.noise_filter, 8)
 
     def forward(self, noise):
         x = self.layer1(noise)
