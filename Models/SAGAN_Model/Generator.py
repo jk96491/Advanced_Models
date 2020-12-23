@@ -1,5 +1,5 @@
 import torch.nn as nn
-from Models.SAGAN_Model.Attention_Layer import self_attention
+from Modules.self_attention_Layer import self_attention
 
 
 class Generator(nn.Module):
