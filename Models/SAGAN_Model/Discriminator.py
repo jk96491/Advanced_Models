@@ -1,6 +1,5 @@
 import torch.nn as nn
 from Modules.self_attention_Layer import self_attention
-from Modules.multi_head_attention_Layer import multi_head_attention
 
 class Discriminator(nn.Module):
     def __init__(self, args):
@@ -33,9 +32,7 @@ class Discriminator(nn.Module):
                                               kernel_size=4, stride=1, padding=0, bias=False),
                                     nn.Sigmoid())
 
-        #self.self_attention_layer = self_attention(self.noise_filter * 8)
-
-        self.self_attention_layer = multi_head_attention(self.noise_filter * 8, 4)
+        self.self_attention_layer = self_attention(self.noise_filter * 8)
 
     def forward(self, inputs):
         x = self.layer1(inputs)
