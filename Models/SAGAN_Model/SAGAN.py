@@ -26,10 +26,10 @@ class sa_gan(nn.Module):
         self.real_loss = None
 
     def learn_discriminator(self, inputs, noise, real_labels, fake_labels):
-        output = self.Discriminator(inputs)
+        output = self.Discriminator(inputs.to(self.device_discriminator))
         real_loss = self.adversarial_loss(output, real_labels.to(self.device_discriminator))
 
-        fake = self.Generator(noise)
+        fake = self.Generator(noise.to(self.device_generator))
         discriminator_result = self.Discriminator(fake.detach().to(self.device_discriminator))
         fake_loss = self.adversarial_loss(discriminator_result, fake_labels.to(self.device_discriminator))
 
