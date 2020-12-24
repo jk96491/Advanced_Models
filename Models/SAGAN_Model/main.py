@@ -6,18 +6,19 @@ from Utils import CIFARLoadData
 from Utils import get_device
 
 args = parse_Arg()
-device = get_device()
+device1 = get_device('cuda:0')
+device2 = get_device('cuda:1')
 
 train_loader = CIFARLoadData(args.batch_size, True, True)
 
-model = sa_gan(args).to(device)
+model = sa_gan(args, [device1, device2])
 
 for epoch in range(args.n_epochs):
     for i, data in enumerate(train_loader):
         real_images, _ = data
         current_batch_size = real_images.size(0)
 
-        inputs = real_images.clone().to(device)
+        inputs = real_images.clone().to(device1)
         noise = torch.zeros(current_batch_size, args.noise_dim, 1, 1).normal_(0, 1)
 
         real_labels = torch.ones(current_batch_size, 1).detach()

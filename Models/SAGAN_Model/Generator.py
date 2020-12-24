@@ -28,7 +28,9 @@ class Generator(nn.Module):
         self.layer5 = nn.Sequential(nn.ConvTranspose2d(self.noise_filter, self.channels, 4, 2, 1, bias=False),
                                     nn.Tanh())
 
-        self.self_attention_layer = multi_head_attention(self.noise_filter, 8)
+        #self.self_attention_layer = multi_head_attention(self.noise_filter, 8)
+
+        self.self_attention_layer = self_attention(self.noise_filter)
 
     def forward(self, noise):
         x = self.layer1(noise)
