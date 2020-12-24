@@ -1,6 +1,7 @@
 import torch.nn as nn
 from Modules.self_attention_Layer import self_attention
 
+
 class Discriminator(nn.Module):
     def __init__(self, args):
         self.noise_dim = args.noise_dim

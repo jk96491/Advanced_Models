@@ -27,10 +27,8 @@ for epoch in range(args.n_epochs):
         discriminator_loss, generator_image = model.learn_discriminator(inputs, noise, real_labels, fake_labels)
         generator_loss = model.learn_generator(noise, real_labels)
 
-        print(
-            "[Epoch %d/%d] [Batch %d/%d] [Discriminator_loss: %f] [Generator_loss: %f]"
-            % (epoch + 1, args.n_epochs, i + 1, len(train_loader), discriminator_loss, generator_loss)
-        )
+        print("[Epoch %d/%d] [Batch %d/%d] [Discriminator_loss: %f] [Generator_loss: %f]"
+            % (epoch + 1, args.n_epochs, i + 1, len(train_loader), discriminator_loss, generator_loss))
 
         batches_done = epoch * len(train_loader) + i
         if batches_done % args.sample_interval == 0:
