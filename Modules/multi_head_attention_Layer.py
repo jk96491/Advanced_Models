@@ -36,7 +36,7 @@ class multi_head_attention(nn.Module):
             key = self.key_layers[i](inputs).view(batch_size, -1, width * height)
             value = self.value_layers[i](inputs).view(batch_size, -1, width * height)
 
-            output, attention_score = self.scaled_dot_product_attention_layer(inputs, query, key, value)
+            output, attention_score = self.scaled_dot_product_attention_layer(query, key, value)
 
             attention_output.append(output)
             attention_score_output.append(attention_score)
