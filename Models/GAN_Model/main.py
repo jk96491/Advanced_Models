@@ -16,8 +16,8 @@ for epoch in range(args.n_epochs):
     for i, (images, _) in enumerate(data_loader):
         real_images = images.to(device)
 
-        generator_loss, generator_image = model.learn_generator(images)
-        discriminator_loss = model.learn_discriminator(real_images, generator_image)
+        generator_loss, fake_image = model.learn_generator(images)
+        discriminator_loss = model.learn_discriminator(real_images, fake_image)
 
         print(
             "[Epoch %d/%d] [Batch %d/%d] [Discriminator_loss: %f] [Generator_loss: %f]"
@@ -26,7 +26,7 @@ for epoch in range(args.n_epochs):
 
         batches_done = epoch * len(data_loader) + i
         if batches_done % args.sample_interval == 0:
-            save_image(generator_image, "images/%d.png" % batches_done, nrow=args.nrow, normalize=True)
+            save_image(fake_image, "images/%d.png" % batches_done, nrow=args.nrow, normalize=True)
 
 
 

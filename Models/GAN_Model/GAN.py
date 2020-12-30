@@ -31,19 +31,19 @@ class gan(nn.Module):
 
         z = torch.zeros(image.size(0), self.args.latent_dim).normal_(0, 1).to(self.device)
 
-        generator_images = self.Generator(z)
-        discriminator_result = self.Discriminator(generator_images)
+        fake_image = self.Generator(z)
+        discriminator_result = self.Discriminator(fake_image)
         loss = self.adversarial_loss(discriminator_result, self.valid)
 
         self.optimizer_generator.zero_grad()
         loss.backward()
         self.optimizer_generator.step()
 
-        return loss.item(), generator_images
+        return loss.item(), fake_image
 
-    def learn_discriminator(self, real_images, generator_images):
+    def learn_discriminator(self, real_images, fake_image):
         real_loss = self.adversarial_loss(self.Discriminator(real_images), self.valid)
-        fake_loss = self.adversarial_loss(self.Discriminator(generator_images.detach()), self.fake)
+        fake_loss = self.adversarial_loss(self.Discriminator(fake_image.detach()), self.fake)
 
         loss = (real_loss + fake_loss) / 2
 
