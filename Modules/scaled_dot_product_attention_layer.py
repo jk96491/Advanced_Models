@@ -8,7 +8,7 @@ class scaled_dot_product_attention(nn.Module):
         self.key_dim = key_dim
         self.softmax = nn.Softmax(dim=-1)
 
-    def forward(self, inputs, query, key, value):
+    def forward(self, query, key, value):
 
         dot_product = torch.bmm(query, key)
         attention_score = self.softmax(dot_product)

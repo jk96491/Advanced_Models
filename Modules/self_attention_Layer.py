@@ -23,7 +23,7 @@ class self_attention(nn.Module):
         key = self.key(inputs).view(batch_size, -1, width * height)
         value = self.value(inputs).view(batch_size, -1, width * height)
 
-        output, attention_score = self.scaled_dot_product_attention_layer(inputs, query, key, value)
+        output, attention_score = self.scaled_dot_product_attention_layer(query, key, value)
         output = output.view(batch_size, channels, width, height)
         output = self.gamma * output + inputs
 
