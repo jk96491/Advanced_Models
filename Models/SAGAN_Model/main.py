@@ -24,7 +24,7 @@ for epoch in range(args.n_epochs):
         real_labels = torch.ones(current_batch_size, 1).detach()
         fake_labels = torch.zeros(current_batch_size, 1).detach()
 
-        discriminator_loss, generator_image = model.learn_discriminator(inputs, noise, real_labels, fake_labels)
+        discriminator_loss, fake_image = model.learn_discriminator(inputs, noise, real_labels, fake_labels)
         generator_loss = model.learn_generator(noise, real_labels)
 
         print("[Epoch %d/%d] [Batch %d/%d] [Discriminator_loss: %f] [Generator_loss: %f]"
@@ -32,8 +32,8 @@ for epoch in range(args.n_epochs):
 
         batches_done = epoch * len(train_loader) + i
         if batches_done % args.sample_interval == 0:
-            temp = generator_image
-            save_image(generator_image, "images/%d.png" % batches_done, nrow=args.nrow, normalize=True)
+            temp = fake_image
+            save_image(fake_image, "images/%d.png" % batches_done, nrow=args.nrow, normalize=True)
 
 
 
